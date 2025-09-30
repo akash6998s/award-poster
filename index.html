@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>अवार्ड पोस्टर जनरेटर</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+Devanagari:wght@400;700;900&display=swap");
+
+      body {
+        font-family: "Noto Sans Devanagari", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        background: #f4f1e6;
+        flex-direction: column;
+      }
+
+      .form-container {
+        background: #fff;
+        padding: 15px 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+        width: 320px;
+      }
+      .form-container h2 {
+        font-family: "Great Vibes", cursive;
+        font-size: 1.5em;
+        text-align: center;
+        color: #d4af37;
+        margin-bottom: 15px;
+      }
+      .form-group {
+        margin-bottom: 12px;
+      }
+      .form-group label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 6px;
+        font-size: 0.9em;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      .submit-btn,
+      .download-btn {
+        width: 100%;
+        padding: 8px;
+        background: #0a1e3c;
+        color: #ffd700;
+        font-weight: 700;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: 0.3s;
+      }
+      .submit-btn:hover,
+      .download-btn:hover {
+        background: #162d55;
+      }
+
+      /* Poster Styles */
+      .award-document {
+        width: 1005px; /* 8.5cm at 300 DPI */
+        height: 1653px; /* 14cm at 300 DPI */
+        background: linear-gradient(
+          145deg,
+          #fff9e8 0%,
+          #fdf6e0 50%,
+          #fff4d9 100%
+        );
+        border: 18px double #d4af37; /* thicker for print */
+        border-radius: 20px;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0;
+        position: relative;
+        box-sizing: border-box;
+      }
+      .header-section {
+        position: relative;
+        z-index: 1;
+        background: linear-gradient(90deg, #0a1e3c, #162d55);
+        color: #ffd700;
+        padding: 20px 0;
+        border-bottom: 8px solid #ffd700;
+        text-align: center;
+        box-shadow: inset 0 -4px 16px rgba(255, 215, 0, 0.4);
+      }
+      .header-section h1 {
+        font-family: "Great Vibes", cursive;
+        font-size: 80px;
+        margin: 0;
+        text-shadow: 0 0 8px rgba(255, 215, 0, 0.9);
+      }
+      .header-section h2 {
+        font-size: 36px;
+        margin: 5px 0 0;
+        font-weight: 600;
+        color: #f2f2f2;
+      }
+      .award-date {
+        font-size: 32px;
+        font-weight: 700;
+        color: #ffd700;
+        margin-top: 8px;
+      }
+      .main-content {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-align: center;
+      }
+      .award-text {
+        font-size: 36px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        color: #0a1e3c;
+        text-transform: uppercase;
+      }
+      .performer-image-placeholder {
+    width: 350px;       /* increased size */
+    height: 350px;      /* increased size */
+    border-radius: 50%;
+    margin: 20px auto;
+    border: 12px solid #D4AF37; /* thicker border for bigger image */
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:150px;     /* icon size increased if no image uploaded */
+    color:#D4AF37;
+    background-size:cover;
+    background-position:center;
+}
+
+      .name-highlight {
+        font-size: 72px;
+        font-weight: 900;
+        color: #0a1e3c;
+        margin-bottom: 20px;
+        padding-bottom: 4px;
+        border-bottom: 4px solid #d4af37;
+        display: inline-block;
+      }
+      .message-section {
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 10px;
+        border: 2px solid #eee;
+      }
+      .congratulations {
+        font-size: 36px;
+        font-weight: 900;
+        color: #0a1e3c;
+        margin-bottom: 8px;
+        text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+      }
+      .message-text {
+        font-size: 28px;
+        color: #2e2e2e;
+        line-height: 1.5;
+        font-style: italic;
+      }
+      .performance-table {
+        width: 95%;
+        margin: 20px auto 0;
+        border-collapse: collapse;
+        font-size: 28px;
+        border: 4px solid #d4af37;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .performance-table th {
+        background: linear-gradient(90deg, #d4af37, #ffd700);
+        color: #0a1e3c;
+        padding: 10px;
+        font-weight: 900;
+        border-bottom: 4px solid #d4af37;
+      }
+      .performance-table td {
+        padding: 8px;
+        border-bottom: 2px solid #e1c870;
+        text-align: center;
+        font-weight: 600;
+      }
+      .performance-table tbody tr:first-child td {
+        background: linear-gradient(90deg, #ffd700, #f1c04d);
+        color: #0a1e3c;
+        font-weight: 900;
+      }
+      .sanchalak-section {
+        position: relative;
+        z-index: 1;
+        padding: 15px 0;
+        background: linear-gradient(90deg, #0a1e3c, #162d55);
+        color: #ffffff;
+        font-size: 28px;
+        border-top: 4px solid #ffd700;
+        text-align: center;
+      }
+      .sanchalak-section strong {
+        color: #ffd700;
+        font-style: italic;
+        border-bottom: 2px solid #ffd700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container" id="formContainer">
+      <h2>अवार्ड विवरण भरें</h2>
+      <div class="form-group">
+        <label>माह</label>
+        <select id="month">
+          <option value="">--Select Month--</option>
+          <option>January</option>
+          <option>February</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+          <option>August</option>
+          <option>September</option>
+          <option>October</option>
+          <option>November</option>
+          <option>December</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>वर्ष</label>
+        <select id="year">
+          <option value="">--Select Year--</option>
+          <script>
+            for (let y = 2025; y <= 2035; y++) {
+              document.write(`<option>${y}</option>`);
+            }
+          </script>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>उपलब्धकर्ता छवि (Image)</label>
+        <input type="file" id="memberImage" accept="image/*" />
+      </div>
+      <h3>सदस्य विवरण</h3>
+      <div class="form-group">
+        <label>पहला सदस्य नाम</label><input type="text" id="member1Name" />
+        <label>रैंक</label><input type="text" id="member1Rank" />
+        <label>कुल सेवा दिवस</label><input type="text" id="member1Days" />
+      </div>
+      <div class="form-group">
+        <label>दूसरा सदस्य नाम</label><input type="text" id="member2Name" />
+        <label>रैंक</label><input type="text" id="member2Rank" />
+        <label>कुल सेवा दिवस</label><input type="text" id="member2Days" />
+      </div>
+      <div class="form-group">
+        <label>तीसरा सदस्य नाम</label><input type="text" id="member3Name" />
+        <label>रैंक</label><input type="text" id="member3Rank" />
+        <label>कुल सेवा दिवस</label><input type="text" id="member3Days" />
+      </div>
+      <button class="submit-btn" onclick="generatePoster()">
+        पोस्टर बनायें
+      </button>
+    </div>
+
+    <button
+      class="download-btn"
+      id="downloadBtn"
+      style="display: none"
+      onclick="downloadPoster()"
+    >
+      डाउनलोड करें
+    </button>
+
+    <div class="award-document" id="poster">
+      <header class="header-section">
+        <h1>जय गुरुदेव</h1>
+        <h2>श्री सुदर्शन सेना भोजन वितरण टीम</h2>
+        <div class="award-date" id="awardDate"></div>
+      </header>
+
+      <div class="main-content">
+        <div class="award-text">
+          उत्कृष्ट सेवा प्रदर्शन हेतु सम्मानित किया जाता है
+        </div>
+        <div class="performer-image-placeholder" id="memberImagePreview">
+          👤
+        </div>
+        <div class="name-highlight" id="member1Display"></div>
+
+        <section class="message-section">
+          <div class="congratulations">हार्दिक बधाई एवं शुभकामनाएँ!</div>
+          <div class="message-text">
+            आपकी निष्ठा, सेवा भावना और नियमितता पूरे दल के लिए प्रेरणा है। सेवा
+            कार्य में आपका यह समर्पण निश्चित ही गुरुजी की कृपा से और ऊँचाइयों को
+            छुएगा।
+          </div>
+        </section>
+
+        <table class="performance-table">
+          <thead>
+            <tr>
+              <th>रैंक</th>
+              <th>नाम</th>
+              <th>सेवा दिवस</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="row1"></tr>
+            <tr id="row2"></tr>
+            <tr id="row3"></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="sanchalak-section">
+        टीम संचालक: <strong>दीपक पाठक</strong>
+      </footer>
+    </div>
+
+    <script>
+      function generatePoster() {
+        const month = document.getElementById("month").value;
+        const year = document.getElementById("year").value;
+        document.getElementById("awardDate").innerText = `${month} ${year}`;
+
+        const m1Name = document.getElementById("member1Name").value;
+        const m1Rank = document.getElementById("member1Rank").value;
+        const m1Days = document.getElementById("member1Days").value;
+        const m2Name = document.getElementById("member2Name").value;
+        const m2Rank = document.getElementById("member2Rank").value;
+        const m2Days = document.getElementById("member2Days").value;
+        const m3Name = document.getElementById("member3Name").value;
+        const m3Rank = document.getElementById("member3Rank").value;
+        const m3Days = document.getElementById("member3Days").value;
+
+        document.getElementById("member1Display").innerText = m1Name;
+        document.getElementById(
+          "row1"
+        ).innerHTML = `<td>${m1Rank}</td><td>${m1Name}</td><td>${m1Days}</td>`;
+        document.getElementById(
+          "row2"
+        ).innerHTML = `<td>${m2Rank}</td><td>${m2Name}</td><td>${m2Days}</td>`;
+        document.getElementById(
+          "row3"
+        ).innerHTML = `<td>${m3Rank}</td><td>${m3Name}</td><td>${m3Days}</td>`;
+
+        const input = document.getElementById("memberImage");
+        const placeholder = document.getElementById("memberImagePreview");
+        if (input.files && input.files[0]) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            placeholder.style.backgroundImage = `url('${e.target.result}')`;
+            placeholder.innerText = "";
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+
+        document.getElementById("poster").style.display = "flex";
+        document.getElementById("formContainer").style.display = "none";
+        document.getElementById("downloadBtn").style.display = "block";
+      }
+
+      function downloadPoster() {
+        const poster = document.getElementById("poster");
+        html2canvas(poster, {
+          scale: 3,
+          useCORS: true,
+          backgroundColor: null,
+        }).then((canvas) => {
+          const link = document.createElement("a");
+          link.download = "award_poster.png";
+          link.href = canvas.toDataURL("image/png", 1.0);
+          link.click();
+        });
+      }
+    </script>
+  </body>
+</html>
