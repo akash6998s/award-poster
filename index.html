@@ -16,7 +16,7 @@
         min-height: 100vh;
         margin: 0;
         padding: 20px;
-        background: #f4f1e6;
+        background: #3e2723;
         flex-direction: column;
       }
 
@@ -28,21 +28,24 @@
         margin-bottom: 20px;
         width: 320px;
       }
+
       .form-container h2 {
-        font-family: "Great Vibes", cursive;
         font-size: 1.5em;
         text-align: center;
-        color: #d4af37;
+        color: #800020;
         margin-bottom: 15px;
       }
+
       .form-group {
         margin-bottom: 12px;
       }
+
       .form-group label {
         display: block;
         font-weight: 700;
         margin-bottom: 4px;
       }
+
       .form-group input,
       .form-group select {
         width: 100%;
@@ -51,12 +54,13 @@
         border-radius: 4px;
         border: 1px solid #ccc;
       }
+
       .submit-btn,
       .download-btn {
         width: 100%;
         padding: 8px;
-        background: #0a1e3c;
-        color: #ffd700;
+        background: #800020;
+        color: #fff;
         font-weight: 700;
         border: none;
         border-radius: 6px;
@@ -64,159 +68,250 @@
         margin-top: 10px;
         transition: 0.3s;
       }
+
       .submit-btn:hover,
       .download-btn:hover {
-        background: #162d55;
+        background: #a52a2a;
       }
 
-      /* Poster Styles */
-      .award-document {
-        width: 1005px; /* 8.5cm at 300 DPI */
-        height: 1653px; /* 14cm at 300 DPI */
-        background: linear-gradient(
-          145deg,
-          #fff9e8 0%,
-          #fdf6e0 50%,
-          #fff4d9 100%
-        );
-        border: 18px double #d4af37; /* thicker for print */
-        border-radius: 20px;
+      .framed-poster-container {
+        width: 1040px;
+        height: 1640px;
+        background: #a07a00;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         display: none;
         flex-direction: column;
-        justify-content: space-between;
-        padding: 0;
-        position: relative;
-        box-sizing: border-box;
+        background-image: linear-gradient(
+          135deg,
+          #a07a00 0%,
+          #d4af37 50%,
+          #a07a00 100%
+        );
       }
-      .header-section {
-        position: relative;
-        z-index: 1;
-        background: linear-gradient(90deg, #0a1e3c, #162d55);
-        color: #ffd700;
-        padding: 20px 0;
-        border-bottom: 8px solid #ffd700;
-        text-align: center;
-        box-shadow: inset 0 -4px 16px rgba(255, 215, 0, 0.4);
-      }
-      .header-section h1 {
-        font-family: "Great Vibes", cursive;
-        font-size: 80px;
-        margin: 0;
-        text-shadow: 0 0 8px rgba(255, 215, 0, 0.9);
-      }
-      .header-section h2 {
-        font-size: 36px;
-        margin: 5px 0 0;
-        font-weight: 600;
-        color: #f2f2f2;
-      }
-      .award-date {
-        font-size: 32px;
-        font-weight: 700;
-        color: #ffd700;
-        margin-top: 8px;
-      }
-      .main-content {
-        position: relative;
-        z-index: 1;
-        flex: 1;
-        padding: 20px;
+
+      .award-document {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        text-align: center;
-      }
-      .award-text {
-        font-size: 36px;
-        font-weight: 800;
-        margin-bottom: 20px;
-        color: #0a1e3c;
-        text-transform: uppercase;
-      }
-      .performer-image-placeholder {
-    width: 350px;       /* increased size */
-    height: 350px;      /* increased size */
-    border-radius: 50%;
-    margin: 20px auto;
-    border: 12px solid #D4AF37; /* thicker border for bigger image */
-    background:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:150px;     /* icon size increased if no image uploaded */
-    color:#D4AF37;
-    background-size:cover;
-    background-position:center;
-}
-
-      .name-highlight {
-        font-size: 72px;
-        font-weight: 900;
-        color: #0a1e3c;
-        margin-bottom: 20px;
-        padding-bottom: 4px;
-        border-bottom: 4px solid #d4af37;
-        display: inline-block;
-      }
-      .message-section {
-        padding: 15px;
-        margin-top: 20px;
-        border-radius: 10px;
-        border: 2px solid #eee;
-      }
-      .congratulations {
-        font-size: 36px;
-        font-weight: 900;
-        color: #0a1e3c;
-        margin-bottom: 8px;
-        text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
-      }
-      .message-text {
-        font-size: 28px;
-        color: #2e2e2e;
-        line-height: 1.5;
-        font-style: italic;
-      }
-      .performance-table {
-        width: 95%;
-        margin: 20px auto 0;
-        border-collapse: collapse;
-        font-size: 28px;
-        border: 4px solid #d4af37;
-        border-radius: 8px;
+        justify-content: flex-start;
+        padding: 0;
+        box-sizing: border-box;
+        border: 5px solid #a07a00;
+        position: relative;
         overflow: hidden;
+
+        background-image: url("bg.jpeg");
+        background-size: cover;
+        background-position: center;
       }
-      .performance-table th {
-        background: linear-gradient(90deg, #d4af37, #ffd700);
-        color: #0a1e3c;
-        padding: 10px;
-        font-weight: 900;
-        border-bottom: 4px solid #d4af37;
+
+      .award-document::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        opacity: 0.1;
+        z-index: 0;
       }
-      .performance-table td {
-        padding: 8px;
-        border-bottom: 2px solid #e1c870;
-        text-align: center;
-        font-weight: 600;
-      }
-      .performance-table tbody tr:first-child td {
-        color: #0a1e3c;
-        font-weight: 900;
-      }
-      .sanchalak-section {
+
+      .award-document > * {
         position: relative;
         z-index: 1;
-        padding: 15px 0;
-        background: linear-gradient(90deg, #0a1e3c, #162d55);
-        color: #ffffff;
+      }
+
+      .award-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.1;
+        z-index: 0;
+      }
+
+      .header-section {
+        background: #800020;
+        color: #fff;
+        padding: 30px 0;
+        text-align: center;
+        border-bottom: 5px solid #d4af37;
+      }
+
+      .header-section h1 {
+        font-size: 70px;
+        margin: 0;
+        font-weight: 900;
+        color: #ffd700;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      }
+
+      .header-section h2 {
+        font-size: 32px;
+        margin: 10px 0 0;
+        font-weight: 400;
+        color: #fff;
+      }
+
+      .award-date {
         font-size: 28px;
-        border-top: 4px solid #ffd700;
+        font-weight: 700;
+        color: #ffd700;
+        margin-top: 10px;
+        letter-spacing: 1px;
+        padding-bottom: 10px;
+      }
+
+      .main-content {
+        flex: 1;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(to bottom, #fdf8e8 0%, #ffffff 100%);
+      }
+
+      .award-text {
+        font-size: 32px;
+        font-weight: 700;
+        margin: 15px 0;
+        color: #800020;
+        letter-spacing: 1px;
+        line-height: 1.2;
+        padding: 5px 20px;
+        border-bottom: 2px solid #800020;
+        border-top: 2px solid #800020;
+      }
+
+      .performer-image-placeholder {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        margin: 30px auto;
+        border: 10px solid #a07a00;
+        background: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 120px;
+        color: #d4af37;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        outline: 5px solid white;
+        outline-offset: -10px;
+      }
+
+      .name-highlight {
+        font-size: 55px;
+        font-weight: 900;
+        color: #000;
+        margin: 15px 0 30px;
+        padding-bottom: 4px;
+        display: inline-block;
+      }
+
+      .message-section {
+        padding: 25px 40px;
+        margin-top: 20px;
+        max-width: 90%;
+        background: transparent;
+        position: relative;
+      }
+
+      .message-section::before,
+      .message-section::after {
+        content: "";
+        position: absolute;
+        left: 5%;
+        right: 5%;
+        height: 2px;
+        background: #d4af37;
+      }
+
+      .message-section::before {
+        top: 0;
+      }
+      .message-section::after {
+        bottom: 0;
+      }
+
+      .congratulations {
+        font-size: 32px;
+        font-weight: 900;
+        color: #800020;
+        margin-bottom: 15px;
+        padding-top: 10px;
+      }
+
+      .message-text {
+        font-size: 24px;
+        color: #333;
+        line-height: 1.6;
+        font-weight: 700;
+      }
+
+      .performance-table {
+        width: 80%;
+        margin: 40px auto 0;
+        border-collapse: collapse;
+        font-size: 24px;
+        border: 2px solid #a07a00;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .performance-table th {
+        background: linear-gradient(to right, #d4af37, #ffd700);
+        color: #800020;
+        padding: 10px 8px;
+        font-weight: 900;
+      }
+
+      .performance-table td {
+        padding: 8px;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+        font-weight: 700;
+        color: #000;
+      }
+
+      .performance-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .performance-table tbody tr:nth-child(even) {
+        background: #f9f9f9;
+      }
+
+      .performance-table tbody tr:nth-child(1) {
+        background: #fff8e1;
+        color: #800020;
+        font-weight: 900;
+      }
+
+      .sanchalak-section {
+        padding: 20px 0;
+        background: #800020;
+        color: #ffffff;
+        font-size: 26px;
+        border-top: 5px solid #d4af37;
         text-align: center;
       }
+
       .sanchalak-section strong {
         color: #ffd700;
-        font-style: italic;
-        border-bottom: 2px solid #ffd700;
       }
     </style>
   </head>
@@ -256,21 +351,31 @@
         <label>उपलब्धकर्ता छवि (Image)</label>
         <input type="file" id="memberImage" accept="image/*" />
       </div>
+
       <h3>सदस्य विवरण</h3>
       <div class="form-group">
-        <label>पहला सदस्य नाम</label><input type="text" id="member1Name" />
-        <label>रैंक</label><input type="text" id="member1Rank" />
-        <label>कुल सेवा दिवस</label><input type="text" id="member1Days" />
+        <label>पहला सदस्य नाम</label>
+        <input type="text" id="member1Name" />
+        <label>रैंक</label>
+        <input type="text" id="member1Rank" />
+        <label>कुल सेवा दिवस</label>
+        <input type="text" id="member1Days" />
       </div>
       <div class="form-group">
-        <label>दूसरा सदस्य नाम</label><input type="text" id="member2Name" />
-        <label>रैंक</label><input type="text" id="member2Rank" />
-        <label>कुल सेवा दिवस</label><input type="text" id="member2Days" />
+        <label>दूसरा सदस्य नाम</label>
+        <input type="text" id="member2Name" />
+        <label>रैंक</label>
+        <input type="text" id="member2Rank" />
+        <label>कुल सेवा दिवस</label>
+        <input type="text" id="member2Days" />
       </div>
       <div class="form-group">
-        <label>तीसरा सदस्य नाम</label><input type="text" id="member3Name" />
-        <label>रैंक</label><input type="text" id="member3Rank" />
-        <label>कुल सेवा दिवस</label><input type="text" id="member3Days" />
+        <label>तीसरा सदस्य नाम</label>
+        <input type="text" id="member3Name" />
+        <label>रैंक</label>
+        <input type="text" id="member3Rank" />
+        <label>कुल सेवा दिवस</label>
+        <input type="text" id="member3Days" />
       </div>
       <button class="submit-btn" onclick="generatePoster()">
         पोस्टर बनायें
@@ -286,50 +391,54 @@
       डाउनलोड करें
     </button>
 
-    <div class="award-document" id="poster">
-      <header class="header-section">
-        <h1>जय गुरुदेव</h1>
-        <h2>श्री सुदर्शन सेना भोजन वितरण टीम</h2>
-        <div class="award-date" id="awardDate"></div>
-      </header>
+    <div class="framed-poster-container" id="framedPosterContainer">
+      <div class="award-document" id="poster">
+        <img src="bg.jpeg" alt="Background" class="award-background" />
+        <header class="header-section">
+          <h1>जय गुरुदेव</h1>
+          <h2>श्री सुदर्शन सेना भोजन वितरण टीम</h2>
+          <div class="award-date" id="awardDate"></div>
+        </header>
 
-      <div class="main-content">
-        <div class="award-text">
-          उत्कृष्ट सेवा प्रदर्शन हेतु सम्मानित किया जाता है
-        </div>
-        <div class="performer-image-placeholder" id="memberImagePreview">
-          👤
-        </div>
-        <div class="name-highlight" id="member1Display"></div>
-
-        <section class="message-section">
-          <div class="congratulations">हार्दिक बधाई एवं शुभकामनाएँ!</div>
-          <div class="message-text">
-            आपकी निष्ठा, सेवा भावना और नियमितता पूरे दल के लिए प्रेरणा है। सेवा
-            कार्य में आपका यह समर्पण निश्चित ही गुरुजी की कृपा से और ऊँचाइयों को
-            छुएगा।
+        <div class="main-content">
+          <div class="award-text">
+            उत्कृष्ट सेवा प्रदर्शन हेतु सम्मानित किया जाता है
           </div>
-        </section>
+          <div
+            class="performer-image-placeholder"
+            id="memberImagePreview"
+          ></div>
+          <div class="name-highlight" id="member1Display"></div>
 
-        <table class="performance-table">
-          <thead>
-            <tr>
-              <th>रैंक</th>
-              <th>नाम</th>
-              <th>सेवा दिवस</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr id="row1"></tr>
-            <tr id="row2"></tr>
-            <tr id="row3"></tr>
-          </tbody>
-        </table>
+          <section class="message-section">
+            <div class="congratulations">हार्दिक बधाई एवं शुभकामनाएँ!</div>
+            <div class="message-text">
+              आपकी निष्ठा, सेवा भावना और नियमितता पूरे दल के लिए प्रेरणा है।
+              सेवा कार्य में आपका यह समर्पण निश्चित ही गुरुजी की कृपा से और
+              ऊँचाइयों को छुएगा।
+            </div>
+          </section>
+
+          <table class="performance-table">
+            <thead>
+              <tr>
+                <th>रैंक</th>
+                <th>नाम</th>
+                <th>सेवा दिवस</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="row1"></tr>
+              <tr id="row2"></tr>
+              <tr id="row3"></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <footer class="sanchalak-section">
+          टीम संचालक: <strong>दीपक पाठक</strong>
+        </footer>
       </div>
-
-      <footer class="sanchalak-section">
-        टीम संचालक: <strong>दीपक पाठक</strong>
-      </footer>
     </div>
 
     <script>
@@ -351,7 +460,7 @@
         document.getElementById("member1Display").innerText = m1Name;
         document.getElementById(
           "row1"
-        ).innerHTML = `<td>${m1Rank}</td><td>${m1Name}</td><td>${m1Days}</td>`;
+        ).innerHTML = `<td>🏆 ${m1Rank}</td><td>${m1Name}</td><td>${m1Days}</td>`;
         document.getElementById(
           "row2"
         ).innerHTML = `<td>${m2Rank}</td><td>${m2Name}</td><td>${m2Days}</td>`;
@@ -361,6 +470,7 @@
 
         const input = document.getElementById("memberImage");
         const placeholder = document.getElementById("memberImagePreview");
+
         if (input.files && input.files[0]) {
           const reader = new FileReader();
           reader.onload = function (e) {
@@ -368,15 +478,19 @@
             placeholder.innerText = "";
           };
           reader.readAsDataURL(input.files[0]);
+        } else {
+          placeholder.style.backgroundImage = "none";
+          placeholder.style.backgroundColor = "#f0f0f0";
+          placeholder.innerText = "";
         }
 
-        document.getElementById("poster").style.display = "flex";
+        document.getElementById("framedPosterContainer").style.display = "flex";
         document.getElementById("formContainer").style.display = "none";
         document.getElementById("downloadBtn").style.display = "block";
       }
 
       function downloadPoster() {
-        const poster = document.getElementById("poster");
+        const poster = document.getElementById("framedPosterContainer");
         html2canvas(poster, {
           scale: 3,
           useCORS: true,
